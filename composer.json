@@ -1,0 +1,13 @@
+{
+    "name": "hp/dynamic_event_booking_system",
+    "description": "Event Booking System",
+    "autoload": {
+        "classmap": [
+            "src/",
+            "src/classes/"
+        ]
+    },
+    "version": "8.0.0",
+    "minimum-stability": "stable",
+    "require": {}
+}
