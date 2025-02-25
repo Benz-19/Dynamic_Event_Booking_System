@@ -30,5 +30,7 @@ class User extends Database
         $query = "SELECT password FROM users WHERE email = :email";
         $stmt =  $this->Connection()->prepare($query);
         $result  = $stmt->execute([':email' => $email]);
+        $isLoggedIn = password_verify($password, $result->fetch(PDO::FETCH_ASSOC)['password']) ? true : false;
+        return $isLoggedIn;
     }
 }
