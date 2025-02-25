@@ -1,14 +1,3 @@
-<?php
-include_once __DIR__ . '../../vendor/autoload.php';
-
-$conn = new Database();
-$connection = $conn->Connection();
-if ($connection) {
-    echo "Connected";
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
