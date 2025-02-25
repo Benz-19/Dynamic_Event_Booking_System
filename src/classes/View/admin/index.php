@@ -3,10 +3,9 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 // Validate if the user is logged in
-if (isset($_SESSION['isLoggedIn'])) {
-    header('Location: dashboard.php');
-    exit();
-}
+// if (isset($_POST['sign-in-btn'])) {
+//     echo "Hello";
+// }
 ?>
 
 <!DOCTYPE html>
@@ -169,7 +168,7 @@ if (isset($_SESSION['isLoggedIn'])) {
         </div>
 
         <div class="form-container sign-in-container">
-            <form action="" method="POST">
+            <form action="<?php echo 'admin.loginAuth.php'; ?>" method="POST">
                 <h1>Sign in</h1>
                 <span>or use your account</span>
                 <div class="infield">

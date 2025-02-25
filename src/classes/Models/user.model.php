@@ -35,14 +35,18 @@ class User extends Database
 
     public function LoginUser($email, $password)
     {
-        $query = "SELECT password FROM users WHERE email = :email";
+        $query = "SELECT * FROM users WHERE email = :email";
         $stmt = $this->Connection()->prepare($query);
         $stmt->execute([':email' => $email]); // Execute the query
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC); // Fetch the result
 
         if ($row) {
-            return password_verify($password, $row['password']);
+            if (password_verify($password, $row['password'])) {
+                return true; // Password matches
+            } else {
+                return false;
+            }
         }
 
         return false;
@@ -58,6 +62,22 @@ class User extends Database
 
         if ($row) {
             return true;
+        }
+
+        return false;
+    }
+
+    // getter
+    public function getUserRole($email)
+    {
+        $query = "SELECT role FROM users WHERE email = :email";
+        $stmt = $this->Connection()->prepare($query);
+        $stmt->execute([':email' => $email]);
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($row) {
+            return $row['role'];
         }
 
         return false;
