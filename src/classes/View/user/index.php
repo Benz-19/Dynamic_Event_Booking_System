@@ -7,8 +7,6 @@ if (isset($_SESSION['isLoggedIn'])) {
     header('Location: dashboard.php');
     exit();
 }
-
-$_SESSION['user_role'] = 'user'; //specifies the role of the user
 ?>
 
 <!DOCTYPE html>
@@ -152,7 +150,7 @@ $_SESSION['user_role'] = 'user'; //specifies the role of the user
 <body>
     <div class="container-main" id="container-main">
         <div class="form-container sign-up-container">
-            <form action="<?php echo 'login.auth.php'; ?>" method="POST">
+            <form action="<?php echo 'user.loginAuth.php'; ?>" method="POST">
                 <h1>Create Account</h1>
                 <div class="infield">
                     <input type="text" placeholder="Full Name" name="signUpFullName" autocomplete="off" />

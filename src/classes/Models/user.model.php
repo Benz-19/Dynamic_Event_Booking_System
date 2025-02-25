@@ -6,10 +6,10 @@ include_once __DIR__ . '/db.model.php';
 class User extends Database
 {
 
-    public function createUser($name, $email, $password)
+    public function createUser($name, $email, $password, $role)
     {
         try {
-            $sql = "INSERT INTO users (name, email, password) VALUES (:name, :email, :password)";
+            $sql = "INSERT INTO users (name, email, password, role) VALUES (:name, :email, :password, :role)";
             $stmt = $this->Connection()->prepare($sql);
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
@@ -22,7 +22,8 @@ class User extends Database
                 $stmt->execute([
                     ':name' => $name,
                     ':email' => $email,
-                    ':password' => $hashedPassword
+                    ':password' => $hashedPassword,
+                    ':role' => $role
                 ]);
                 return true;
             }
