@@ -1,3 +1,8 @@
+<?php
+header('Location: ../src/classes/View/user/index.php');
+exit();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
