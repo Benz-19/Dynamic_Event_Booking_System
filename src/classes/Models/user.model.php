@@ -1,6 +1,4 @@
 <?php
-
-
 include_once __DIR__ . '/db.model.php';
 
 class User extends Database
@@ -70,7 +68,6 @@ class User extends Database
     public function logoutUser()
     {
         // Destroy the session to log out the user
-        session_start();
         session_unset();
         session_destroy();
         return true;

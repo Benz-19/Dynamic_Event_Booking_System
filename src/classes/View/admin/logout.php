@@ -5,7 +5,8 @@ include_once __DIR__ . "/../../../includes/handle_error.php";
 
 $usr = new User();
 
-$_SESSION['user'] = NULL;
+$_SESSION['admin'] = NULL;
+
 if ($usr->logoutUser()) {
     echo '
 <script type="text/javascript">
