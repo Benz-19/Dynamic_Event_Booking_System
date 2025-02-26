@@ -1,5 +1,5 @@
 <?php
-session_start(); // Start the session at the very beginning
+session_start();
 
 $servername = "localhost";
 $username = "root";
@@ -16,7 +16,6 @@ if ($conn->connect_error) {
 $sql = "SELECT * FROM events WHERE date >= CURDATE() ORDER BY date ASC";
 $result = $conn->query($sql);
 
-// ... HTML structure (using Tailwind CSS for styling) ...
 ?>
 
 <!DOCTYPE html>
@@ -36,6 +35,11 @@ $result = $conn->query($sql);
         .sold-out {
             @apply text-red-500 font-bold;
         }
+
+        .event-card {
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -44,18 +48,17 @@ $result = $conn->query($sql);
         <h1 class="text-3xl font-bold mb-4">Upcoming Events</h1>
 
         <?php if ($result->num_rows > 0) : ?>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"> <?php // Grid for responsive layout 
-                                                                                ?>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <?php while ($row = $result->fetch_assoc()) : ?>
                     <div class="event-card">
-                        <h3 class="text-xl font-semibold mb-2"><?php echo $row['title']; ?></h3>
+                        <h3 class="text-xl font-semibold mb-2"><?php echo $row['name']; ?></h3>
                         <p class="mb-1">Date: <?php echo $row['date']; ?></p>
                         <p class="mb-1">Venue: <?php echo $row['venue']; ?></p>
                         <p class="mb-2"><?php echo $row['description']; ?></p>
                         <?php if ($row['available_seats'] > 0) : ?>
                             <button class="register-btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" data-event-id="<?php echo $row['id']; ?>">Register</button>
                         <?php else : ?>
-                            <p class="sold-out">Sold Out</p>
+                            <p class="sold-out bg-red-500">Sold Out</p>
                         <?php endif; ?>
                     </div>
                 <?php endwhile; ?>
@@ -64,6 +67,11 @@ $result = $conn->query($sql);
             <p class="text-center">No upcoming events.</p>
         <?php endif; ?>
     </div>
+
+
+    <button class="my-6 mx-4 register-btn bg-red-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+        <a href="dashboard.php">Return to Dashboard</a>
+    </button>
 
 
     <script>
@@ -83,7 +91,7 @@ $result = $conn->query($sql);
                     .then(response => response.text())
                     .then(data => {
                         alert(data); // Display the message from register_event.php
-                        if (data === "Registration successful!") {
+                        if (data === " Registration successful!") {
                             location.reload(); // Only reload on successful registration
                         }
                     })

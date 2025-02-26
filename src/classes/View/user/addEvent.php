@@ -1,4 +1,19 @@
-<?
+<?php
+
+include_once __DIR__ . '/../../Models/user.model.php';
+
+if (isset($_POST['createEvent'])) {
+    $user = new User();
+
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    $venue = $_POST['venue'];
+    $seats = $_POST['seats'];
+    $user->insertEvent($title, $description, $venue, $seats);
+    echo '<script>alert("Event added successfully!!!")</script>';
+}
+
+?>
 
 
 <!DOCTYPE html>
@@ -16,15 +31,10 @@
     <div class="container mx-auto p-4">
         <h1 class="text-3xl font-bold mb-4">Add New Event</h1>
 
-        <form action="process_event.php" method="post" class="max-w-md mx-auto bg-white shadow rounded p-6">
+        <form action="" method="post" class="max-w-md mx-auto bg-white shadow rounded p-6">
             <div class="mb-4">
                 <label for="title" class="block text-gray-700 font-bold mb-2">Title</label>
                 <input type="text" id="title" name="title" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
-            </div>
-
-            <div class="mb-4">
-                <label for="date" class="block text-gray-700 font-bold mb-2">Date</label>
-                <input type="date" id="date" name="date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
             </div>
 
             <div class="mb-4">
@@ -43,7 +53,7 @@
             </div>
 
             <div class="flex justify-end">
-                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Event</button>
+                <button type="submit" name="createEvent" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Event</button>
             </div>
         </form>
 

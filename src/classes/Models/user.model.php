@@ -67,6 +67,15 @@ class User extends Database
         return false;
     }
 
+    public function logoutUser()
+    {
+        // Destroy the session to log out the user
+        session_start();
+        session_unset();
+        session_destroy();
+        return true;
+    }
+
     // getter
     public function getUserRole($email)
     {
@@ -97,5 +106,12 @@ class User extends Database
         }
 
         return false;
+    }
+
+    public function insertEvent($name, $description, $venue, $available_seats)
+    {
+        $query = "INSERT INTO events (name, description, venue, available_seats) VALUES (:name, :description, :venue, :available_seats)";
+        $stmt = $this->Connection()->prepare($query);
+        $stmt->execute([':name' => $name, ':description' => $description, ':venue' => $venue, ':available_seats' => $available_seats]);
     }
 }

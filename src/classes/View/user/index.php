@@ -2,11 +2,7 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-// Validate if the user is logged in
-// if (isset($_SESSION['isLoggedIn'])) {
-//     header('Location: dashboard.php');
-//     exit();
-// }
+
 ?>
 
 <!DOCTYPE html>
