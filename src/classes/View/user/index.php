@@ -169,7 +169,7 @@ if (session_status() == PHP_SESSION_NONE) {
         </div>
 
         <div class="form-container sign-in-container">
-            <form action="<?php echo 'user.loginAuth.php'; ?>" method="POST">
+            <form action="user.loginAuth.php" method="POST">
                 <h1>Sign in</h1>
                 <span>or use your account</span>
                 <div class="infield">

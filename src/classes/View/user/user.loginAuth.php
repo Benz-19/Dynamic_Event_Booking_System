@@ -54,7 +54,7 @@ if (isset($_POST['sign-up-btn'])) {
             $password = $_POST['signInPassword'];
 
             if ($user->LoginUser($email, $password)) {
-                $_SESSION['admin'] = $email;
+                $_SESSION['user'] = $email;
                 header('Location: dashboard.php');
             } else {
                 error_message("Invalid email or password!!!");

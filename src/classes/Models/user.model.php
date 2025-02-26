@@ -82,4 +82,20 @@ class User extends Database
 
         return false;
     }
+
+
+    public function getUserId($email)
+    {
+        $query = "SELECT id FROM users WHERE email = :email";
+        $stmt = $this->Connection()->prepare($query);
+        $stmt->execute([':email' => $email]);
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($row) {
+            return $row['id'];
+        }
+
+        return false;
+    }
 }
