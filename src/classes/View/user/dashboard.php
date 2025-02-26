@@ -21,6 +21,11 @@ $id = $user->getUserId($_SESSION['user']);
 </head>
 
 <body class="bg-gray-100 font-sans">
+
+    <div class="container mx-auto p-4 flex justify-end">
+        <a href="logout.php" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Logout</a>
+    </div>
+
     <div class="container mx-auto p-4">
         <h1 class="text-3xl font-bold mb-4">Welcome to Your Dashboard, <?php echo $_SESSION['user']; ?>!</h1>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -56,13 +61,6 @@ $id = $user->getUserId($_SESSION['user']);
             </div>
 
         </div>
-
-        <div class="mt-8">
-            <a href="logout.php" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 mt-4 rounded">Logout</a>
-        </div>
-
-
-    </div>
 </body>
 
 </html>

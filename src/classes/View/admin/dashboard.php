@@ -10,6 +10,9 @@
 
 <body class="bg-gray-100 font-sans">
 
+    <div class="container mx-auto p-4 flex justify-end">
+        <a href="logout.php" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Logout</a>
+    </div>
     <div class="container mx-auto p-4">
         <h1 class="text-3xl font-bold mb-4 text-center">Event Management Dashboard</h1>
 
@@ -36,10 +39,6 @@
             </div>
         </div>
 
-
-        <div class="mt-8">
-            <a href="logout.php" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 mt-4 rounded">Logout</a>
-        </div>
     </div>
 </body>
 

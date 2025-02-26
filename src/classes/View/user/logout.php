@@ -7,6 +7,7 @@ $usr = new User();
 
 $_SESSION['user'] = NULL;
 if ($usr->logoutUser()) {
+    success_message("Logging out...!");
     echo '
 <script type="text/javascript">
 
