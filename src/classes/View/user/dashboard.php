@@ -35,7 +35,7 @@ $id = $user->getUserId($_SESSION['user']);
                 <p>Register for upcoming events.</p>
                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  mt-12 rounded">
                     <a href="addEvent.php">
-                        View Events
+                        Create Events
                     </a>
                 </button>
             </div>
