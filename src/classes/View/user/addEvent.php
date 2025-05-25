@@ -12,7 +12,6 @@ if (isset($_POST['createEvent'])) {
     $user->insertEvent($title, $description, $venue, $seats);
     echo '<script>alert("Event added successfully!!!")</script>';
 }
-
 ?>
 
 
