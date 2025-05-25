@@ -15,7 +15,6 @@ if ($conn->connect_error) {
 // Fetch events (improved query to handle sold-out events efficiently)
 $sql = "SELECT * FROM events WHERE date >= CURDATE() ORDER BY date ASC";
 $result = $conn->query($sql);
-
 ?>
 
 <!DOCTYPE html>
